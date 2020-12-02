@@ -5,9 +5,12 @@ import ReactDOM from "react-dom"
 import "./styles.css"
 
 import App from "./App"
+import { ThingItemContextProvider } from "./thingContext"
 
 
 ReactDOM.render(
-    <App/>,
+    <ThingItemContextProvider>
+        <App/>
+    </ThingItemContextProvider>,
     document.getElementById("root")
 )

@@ -5,9 +5,9 @@ import React from "react"
 
 function List (props) {
     return(
-        <span key={props.thingList}>
+        <span key={props.listItemList}>
             {
-                props.thingList
+                props.listItemList
             }
         </span>
     )

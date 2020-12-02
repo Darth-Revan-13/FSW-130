@@ -9,13 +9,9 @@ import {ListItemContextConsumer} from "./listItems"
 import "./styles.css"
 
 class App extends React.Component {
-
-    
-    
     render() {
         return(
-
-                <ListItemContextConsumer>{({addToList, handleChange, shipNameItem, shipImageItem, shipList}) => {
+            <ListItemContextConsumer>{({addToList, handleChange, shipNameItem, shipImageItem, shipList}) => {
                 return(
                 <div>
                 <Header/>
@@ -32,7 +28,7 @@ class App extends React.Component {
                         )
                 })}
                 </div>)}}
-                </ListItemContextConsumer>
+            </ListItemContextConsumer>
             
         )
     }

@@ -2,65 +2,43 @@
 //Form for Project List
 
 import React from "react"
+import {ThingItemContextConsumer} from "./thingContext"
 
 class ListForm extends React.Component {
-    state ={
-        listItemName: "",
-        listItemImage: "",
-        listItemDesc: "",
-        listItemNameItem: "",
-        listItemImageItem: "",
-        listItemDescItem: ""
-    }
-
-    handleChange = (event) => {
-        const {name, value} = event.target
-        this.setState({
-            [name]: value
-        })
-    }
-
-    addToList=(event) => {
-        event.preventDefault();
-        this.setState({
-            listItemNameItem: this.state.listItemName,
-            listItemImageItem: this.state.listItemImage,
-            listItemDescItem: this.state.listItemDesc
-        })
-    }
-
     render(){
     return(
         <div>
-            <form>
+            <ThingItemContextConsumer>{({addToList, handleChange, listItemDesc, listItemImage, listItemName, listItemList}) => {
+                return(
+                    <form>
                 <input
                     type="text"
-                    value={this.state.listItemName}
+                    value={listItemName}
                     name="listItemName"
                     placeholder="Title"
                     required
-                    onChange={this.handleChange}
+                    onChange={handleChange}
                 />
                 <input
                     type="text"
-                    value={this.state.listItemImage}
+                    value={listItemImage}
                     name="listItemImage"
                     placeholder="Image Url"
                     alt="Image"
                     required
-                    onChange={this.handleChange}
+                    onChange={handleChange}
                 />
                 <input
                     type="text"
-                    value={this.state.listItemDesc}
+                    value={listItemDesc}
                     name="listItemDesc"
                     placeholder="Description"
                     required
-                    onChange={this.handleChange}
+                    onChange={handleChange}
                 />
-                <button onClick={this.addToList}>Submit</button>
-            </form>
-            <img src={`${this.state.listItemImage}`}/>
+                <button onClick={addToList}>Submit</button>
+            </form>)}}
+            </ThingItemContextConsumer>
         </div>
     )
 }
